@@ -16,5 +16,14 @@ module.exports = {
     .catch((error) => {
       console.log('Error:', error);
     });
+  },
+
+  get: (params) => {
+    let query = `
+      SELECT * FROM ${config.database.tables[2]}
+      WHERE ID IN (${params.ids.join(',')})
+    `;
+
+    return db.queryAsync(query);
   }
 };

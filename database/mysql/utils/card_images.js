@@ -9,12 +9,21 @@ module.exports = {
     `;
 
     return db.queryAsync(query)
-    .then((results, fields) => {
-      console.log('Success:', results);
-      console.log('Success:', fields);
-    })
-    .catch((error) => {
-      console.log('Error:', error);
-    });
+      .then((results, fields) => {
+        console.log('Success:', results);
+        console.log('Success:', fields);
+      })
+      .catch((error) => {
+        console.log('Error:', error);
+      });
+  },
+
+  get: (params) => {
+    let query = `
+      SELECT * FROM ${config.database.tables[0]}
+      WHERE id=${params.id}
+    `;
+
+    return db.queryAsync(query);
   }
 };
