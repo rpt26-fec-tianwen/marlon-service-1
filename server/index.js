@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const card_images = require('../database/mysql/utils/card_images');
 const display_images = require('../database/mysql/utils/display_images');
 const related_images = require('../database/mysql/utils/related_images');
@@ -17,6 +18,12 @@ app.get('/:id', (req, res) => {
     return;
   }
 
+  if (req.params.id) {
+    res.sendFile(path.resolve(__dirname + '/../public/index.html'));
+  }
+});
+
+app.get('/card/:id', (req, res) => {
   return card_images.get({id: req.params.id})
     .then((results) => {
       console.log('Success:', results[0][0]);

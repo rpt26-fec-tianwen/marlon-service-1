@@ -1,4 +1,5 @@
 import React from 'react';
+import RootSlider from './RootSlider.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,9 +16,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let testId = 1;
+    let productId = location.href.split('//').join('').split('/')[1];
 
-    this.props.getProduct(testId)
+    this.props.getProduct(productId)
       .then((product) => {
         this.setState(() => {
           return {productTitle: product.title};
@@ -29,6 +30,7 @@ class App extends React.Component {
               return {productColors: product.colors};
             }, () => {
               this.setState(() => {
+                console.log(product.urls);
                 return {productImages: product.urls};
               });
             });
@@ -41,9 +43,10 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className='product-card-container'>
-        <h1>Red</h1>
+        <RootSlider images={this.state.productImages}/>
       </div>
     );
   }
