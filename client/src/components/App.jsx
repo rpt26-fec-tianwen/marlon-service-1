@@ -30,8 +30,7 @@ class App extends React.Component {
               return {productColors: product.colors};
             }, () => {
               this.setState(() => {
-                console.log(product.urls);
-                return {productImages: product.urls};
+                return {productImages: JSON.parse(product.urls)};
               });
             });
           });
@@ -43,7 +42,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className='product-card-container'>
         <RootSlider images={this.state.productImages}/>

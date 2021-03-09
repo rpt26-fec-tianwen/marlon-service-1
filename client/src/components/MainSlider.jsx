@@ -1,11 +1,10 @@
 import React from 'react';
-import Thumb from './Thumb.jsx';
 
-const ThumbSlider = (props) => {
+const MainSlider = (props) => {
   let images = props.images;
 
   return (
-    <div className='thumbs-slider-container'>
+    <div className='main-slider-container'>
       {images.map((image, i) => {
         return <img key={i} src={image} />;
       })}
@@ -13,4 +12,4 @@ const ThumbSlider = (props) => {
   );
 };
 
-export default ThumbSlider;
+export default MainSlider;
