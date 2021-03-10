@@ -5,7 +5,20 @@ const MainSlider = (props) => {
   let position = props.position;
   let positionMax = props.positionMax;
 
-  if (position === 0) {
+  if (positionMax === 0) {
+    return (
+      <div className='main-slider-container'>
+        <div className='main-slider-carousel-track-container'>
+          <ul className='main-slider-carousel-track' style={{left: `-${position}px`}}>
+            {images.map((image, i) => {
+              return <li key={i} className='main-slider-carousel-slide' style={{left: `${620 * i}px`}}><img src={image} className='main-img'/></li>;
+            })}
+          </ul>
+        </div>
+      </div>
+    );
+
+  } else if (position === 0) {
     return (
       <div className='main-slider-container'>
         <div className='main-slider-carousel-track-container'>
