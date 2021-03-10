@@ -9,8 +9,8 @@ const RootSlider = (props) => {
 
   return (
     <div className='root-slider-container'>
-      <ThumbSlider images={thumbImages}/>
-      <MainSlider images={mainImages}/>
+      <ThumbSlider images={thumbImages} handleThumbs={props.handleThumbs}/>
+      <MainSlider images={mainImages} position={props.sliderPosition} positionMax={props.sliderPositionMax} handleCarousel={props.handleCarousel}/>
     </div>
   );
 };
