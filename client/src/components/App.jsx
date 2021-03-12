@@ -1,5 +1,6 @@
 import React from 'react';
 import RootSlider from './RootSlider.jsx';
+import CardContents from './CardContents.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class App extends React.Component {
             return {productPrice: product.price};
           }, () => {
             this.setState(() => {
-              return {productColors: product.colors};
+              return {productColors: JSON.parse(product.colors)};
             }, () => {
               this.setState(() => {
                 return {productImages: JSON.parse(product.urls)};
@@ -81,6 +82,7 @@ class App extends React.Component {
     return (
       <div className='product-card-container'>
         <RootSlider images={this.state.productImages} sliderPosition={this.state.sliderPosition} sliderPositionMax={this.state.sliderPositionMax} handleCarousel={this.handleCarousel} handleThumbs={this.handleThumbs}/>
+        <CardContents/>
       </div>
     );
   }

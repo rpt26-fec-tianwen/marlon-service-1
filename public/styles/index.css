@@ -3,6 +3,18 @@ body {
   width: 700px;
 }
 
+/* ------- product card info ------- */
+
+.product-card-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+/* ------------------------------- */
+
+
+/* ------- root slider info -------*/
+
 .root-slider-container {
   display: grid;
   grid-template-columns: 1fr 7fr;
@@ -77,4 +89,24 @@ body {
 
 .carousel-b-next {
   right: -0px;
+}
+
+/* ------------------------------ */
+
+
+/* ------ card contents info ------*/
+
+.card-contents-container {
+
+}
+
+.card-contents {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  grid-template-rows: repeat(auto, auto);
+}
+
+.card-contents-top-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
