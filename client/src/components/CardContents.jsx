@@ -3,17 +3,17 @@ import CardTop from './CardTop.jsx';
 import CardProductTitle from './CardProductTitle.jsx';
 import CardProductPrice from './CardProductPrice.jsx';
 import CardProductColor from './CardProductColor.jsx';
+import CardSwatches from './CardSwatches.jsx';
 
 const CardContents = (props) => {
-  console.log('Card Contents:', props);
-
   return (
     <div className='card-contents-container'>
       <div className='card-contents'>
-        <CardTop/>
-        <CardProductTitle/>
-        <CardProductPrice/>
-        <CardProductColor/>
+        <CardTop type={props.type} rating={props.rating}/>
+        <CardProductTitle title={props.title}/>
+        <CardProductPrice price={props.price}/>
+        <CardProductColor currentColor={props.currentColor}/>
+        <CardSwatches currentSwatch={props.currentSwatch} colors={props.colors} handleSwatches={props.handleSwatches}/>
       </div>
     </div>
   );
