@@ -2,8 +2,8 @@ import React from 'react';
 
 const CardProductType = (props) => {
   return (
-    <div className='card-contents-type'>
-      <span>Athletic</span>
+    <div>
+      <span className='card-contents-type'>Athletic</span>
     </div>
   );
 };

@@ -68,7 +68,11 @@ class App extends React.Component {
             return {productPrice: product.price};
           }, () => {
             this.setState(() => {
-              return {productColors: JSON.parse(product.colors)};
+              if (JSON.parse(product.colors).length === 0) {
+                return {productColors: ['black']};
+              } else {
+                return {productColors: JSON.parse(product.colors)};
+              }
             }, () => {
               this.setState(() => {
                 return {productImages: JSON.parse(product.urls)};
@@ -77,7 +81,13 @@ class App extends React.Component {
                   let max = (JSON.parse(product.urls).length / 2 - 1) * 620;
                   return {sliderPositionMax: max};
                 }, () => {
-                  this.setState({currentColor: JSON.parse(product.colors)[0]})
+                  this.setState(() => {
+                    if (JSON.parse(product.colors).length === 0) {
+                      return {currentColor: 'black'};
+                    } else {
+                      return {currentColor: JSON.parse(product.colors)[0]};
+                    }
+                  });
                 });
               });
             });
