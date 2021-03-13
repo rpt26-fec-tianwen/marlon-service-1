@@ -1,5 +1,6 @@
 import React from 'react';
 import RootSlider from './RootSlider.jsx';
+import CardContents from './CardContents.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,12 +13,14 @@ class App extends React.Component {
       productType: '',
       productRating: 0,
       currentColor: '',
+      currentSwatch: 0,
       sliderPosition: 0,
       sliderPositionMax: 0
     }
 
     this.handleCarousel = this.handleCarousel.bind(this);
     this.handleThumbs = this.handleThumbs.bind(this);
+    this.handleSwatches = this.handleSwatches.bind(this);
   }
 
   handleThumbs(e) {
@@ -45,6 +48,14 @@ class App extends React.Component {
     }
   }
 
+  handleSwatches(e) {
+    this.setState((state) => ({
+      currentSwatch: Number(e.target.id)
+    }), () => {
+      this.setState({currentColor: e.target.style.backgroundColor});
+    });
+  }
+
   componentDidMount() {
     let productId = location.href.split('//').join('').split('/')[1];
 
@@ -57,7 +68,11 @@ class App extends React.Component {
             return {productPrice: product.price};
           }, () => {
             this.setState(() => {
-              return {productColors: product.colors};
+              if (JSON.parse(product.colors).length === 0) {
+                return {productColors: ['black']};
+              } else {
+                return {productColors: JSON.parse(product.colors)};
+              }
             }, () => {
               this.setState(() => {
                 return {productImages: JSON.parse(product.urls)};
@@ -65,6 +80,14 @@ class App extends React.Component {
                 this.setState(() => {
                   let max = (JSON.parse(product.urls).length / 2 - 1) * 620;
                   return {sliderPositionMax: max};
+                }, () => {
+                  this.setState(() => {
+                    if (JSON.parse(product.colors).length === 0) {
+                      return {currentColor: 'black'};
+                    } else {
+                      return {currentColor: JSON.parse(product.colors)[0]};
+                    }
+                  });
                 });
               });
             });
@@ -81,6 +104,7 @@ class App extends React.Component {
     return (
       <div className='product-card-container'>
         <RootSlider images={this.state.productImages} sliderPosition={this.state.sliderPosition} sliderPositionMax={this.state.sliderPositionMax} handleCarousel={this.handleCarousel} handleThumbs={this.handleThumbs}/>
+        <CardContents title={this.state.productTitle} price={this.state.productPrice} type={this.state.productType} colors={this.state.productColors} currentColor={this.state.currentColor} currentSwatch={this.state.currentSwatch} rating={this.state.productRating} handleSwatches={this.handleSwatches}/>
       </div>
     );
   }
