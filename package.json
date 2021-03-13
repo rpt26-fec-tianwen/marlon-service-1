@@ -9,7 +9,14 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "test": "jest --watch"
+  },
+  "jest": {
+    "moduleFileExtensions": ["js", "jsx"],
+    "transform": {
+      "//.js$": "babel-jest"
+    }
   },
   "dependencies": {
     "aws-sdk": "^2.858.0",
