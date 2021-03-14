@@ -5,7 +5,7 @@ const CardSwatch = (props) => {
 
   return (
     <div className='card-contents-swatch' style={divStyle}>
-      <span id={props.i} className='swatch' style={{backgroundColor: `${props.color}`}} onClick={props.handleSwatches}></span>
+      <span id={props.i} data-testid='swatch' className='swatch' style={{backgroundColor: `${props.color}`}} onClick={props.handleSwatches}></span>
     </div>
   );
 }
