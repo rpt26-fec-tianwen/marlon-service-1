@@ -8,3 +8,12 @@ export const getProduct = (id) => {
       return response.data;
     });
 };
+
+export const getProductType = (id) => {
+  const path = '/productDetail/activity/' + id;
+
+  return axios.get(path)
+    .then((response) => {
+      return response.data;
+    });
+};

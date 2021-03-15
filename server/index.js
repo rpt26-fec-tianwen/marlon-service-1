@@ -23,6 +23,7 @@ app.get('/:id', (req, res) => {
   }
 });
 
+// GET PRODUCT
 app.get('/card/:id', (req, res) => {
   return card_images.get({id: req.params.id})
     .then((results) => {
@@ -36,6 +37,7 @@ app.get('/card/:id', (req, res) => {
     });
 });
 
+// GET DISPLAY IMAGES
 app.get('/display/:id', (req, res) => {
   if (req.params.id === 'favicon.ico') {
     res.end();
@@ -53,6 +55,7 @@ app.get('/display/:id', (req, res) => {
     });
 });
 
+// GET RELATED IMAGES
 app.get('/related/:id', (req, res) => {
   if (req.params.id === 'favicon.ico') {
     res.end();
@@ -68,6 +71,11 @@ app.get('/related/:id', (req, res) => {
       console.log('Error:', error);
       res.end();
     });
+});
+
+// GET PRODUCT TYPE -- test route -- (DELETE)
+app.get('/productDetail/activity/:id', (req, res) => {
+  res.send('trekking');
 });
 
 app.listen(port, () => {
