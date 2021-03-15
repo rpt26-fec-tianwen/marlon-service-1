@@ -11,6 +11,6 @@ describe('CardCardButton user interface', () => {
 
   it('Has an "add to cart" button', () => {
     render(<CardCartButton/>);
-    screen.getByText('add to card');
+    screen.getByText('add to cart');
   });
 });
