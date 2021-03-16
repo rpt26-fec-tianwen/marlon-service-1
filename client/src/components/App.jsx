@@ -103,7 +103,7 @@ class App extends React.Component {
     console.log(this.state);
     return (
       <div className='product-card-container'>
-        <RootSlider images={this.state.productImages} sliderPosition={this.state.sliderPosition} sliderPositionMax={this.state.sliderPositionMax} handleCarousel={this.handleCarousel} handleThumbs={this.handleThumbs}/>
+        <RootSlider images={this.state.productImages} title={this.state.productTitle} sliderPosition={this.state.sliderPosition} sliderPositionMax={this.state.sliderPositionMax} handleCarousel={this.handleCarousel} handleThumbs={this.handleThumbs}/>
         <CardContents title={this.state.productTitle} price={this.state.productPrice} type={this.state.productType} colors={this.state.productColors} currentColor={this.state.currentColor} currentSwatch={this.state.currentSwatch} rating={this.state.productRating} handleSwatches={this.handleSwatches}/>
       </div>
     );
