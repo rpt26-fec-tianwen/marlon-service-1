@@ -27,12 +27,13 @@ app.get('/card/:id', (req, res) => {
   return card_images.get({id: req.params.id})
     .then((results) => {
       console.log('Success:', results[0][0]);
+
       const result = JSON.stringify(results[0][0]);
       res.send(result);
     })
     .catch((error) => {
       console.log('Error:', error);
-      res.redirect('/');
+      res.end();
     });
 });
 
@@ -45,7 +46,9 @@ app.get('/display/:id', (req, res) => {
   return display_images.get({id: req.params.id})
     .then((results) => {
       console.log('Success:', results[0][0]);
-      res.end();
+
+      const result = JSON.stringify(results[0][0]);
+      res.send(result);
     })
     .catch((error) => {
       console.log('Error:', error);
@@ -61,8 +64,10 @@ app.get('/related/:id', (req, res) => {
 
   return related_images.get({ids: req.body.data})
     .then((results) => {
-      console.log('Success:', JSON.stringify(results[0]));
-      res.end();
+      console.log('Success:', results[0]);
+
+      const result = JSON.stringify(results[0]);
+      res.send(result);
     })
     .catch((error) => {
       console.log('Error:', error);
