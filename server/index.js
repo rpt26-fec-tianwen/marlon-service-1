@@ -8,7 +8,7 @@ const related_images = require('../database/mysql/utils/related_images');
 const app = express();
 const port = 8001;
 
-app.use(express.static('../public'));
+app.use(express.static(path.resolve('public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
