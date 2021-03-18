@@ -95,7 +95,33 @@ class App extends React.Component {
         });
       })
       .catch((error) => {
-        console.log('App Error:', error);
+        console.log('Failed To Get Product Details:', error);
+      })
+      .then(() => {
+        return this.props.getProductType(productId)
+          .then((type) => {
+            if (!type) {
+              throw type;
+            } else {
+              this.setState({productType: type});
+            }
+          });
+      })
+      .catch((error) => {
+        console.log('Failed To Get Product Type:', error);
+      })
+      .then(() => {
+        return this.props.getProductReview(productId)
+          .then((review) => {
+            if (!review) {
+              throw review;
+            } else {
+              this.setState({productReview: review});
+            }
+          });
+      })
+      .catch((error) => {
+        console.log('Failed To Get Product Review:', error);
       });
   }
 
