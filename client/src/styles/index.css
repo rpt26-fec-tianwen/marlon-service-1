@@ -123,6 +123,21 @@ body {
   justify-self: right;
 }
 
+.fa-star {
+  margin: 0px 0px 0px 2px;
+  font-size: 11px;
+  font-weight: lighter;
+  color: rgb(66, 66, 66);
+}
+
+.star-rating {
+  font-family: 'Thasadith', sans-serif;
+  margin: 0px 0px 0px 3px;
+  font-size: 12px;
+  font-weight: lighter;
+  color: rgb(0, 0, 0);
+}
+
 .card-contents-title {
   margin-top: 8px;
   margin-bottom: 12px;
