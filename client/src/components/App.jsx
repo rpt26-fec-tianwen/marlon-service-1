@@ -109,6 +109,19 @@ class App extends React.Component {
       })
       .catch((error) => {
         console.log('Failed To Get Product Type:', error);
+      })
+      .then(() => {
+        return this.props.getProductReview(productId)
+          .then((review) => {
+            if (!review) {
+              throw review;
+            } else {
+              this.setState({productReview: review});
+            }
+          });
+      })
+      .catch((error) => {
+        console.log('Failed To Get Product Review:', error);
       });
   }
 
