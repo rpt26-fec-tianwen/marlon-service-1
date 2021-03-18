@@ -26,10 +26,6 @@ body {
   justify-content: center;
 }
 
-.thumb-slider-container {
-  /* width: 65px; */
-}
-
 .thumb-slider {
   display: grid;
   grid-template-columns: 1fr;
@@ -102,10 +98,6 @@ body {
 
 
 /* ------ card contents info ------*/
-
-.card-contents-container {
-
-}
 
 .card-contents {
   display: grid;
