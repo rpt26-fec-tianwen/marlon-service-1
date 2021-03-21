@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
+
 const card_images = require('../database/mysql/utils/card_images');
 const display_images = require('../database/mysql/utils/display_images');
 const related_images = require('../database/mysql/utils/related_images');
@@ -8,6 +10,7 @@ const related_images = require('../database/mysql/utils/related_images');
 const app = express();
 const port = 8001;
 
+app.use(cors());
 app.use(express.static(path.resolve('public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -18,7 +21,12 @@ app.get('/:id', (req, res) => {
     return;
   }
 
-  if (req.params.id) {
+  console.log(req.params, req.query);
+
+  if (req.query.proxy) {
+    res.sendFile(path.resolve(__dirname + '/../public/dist/bundle.js'));
+
+  } else {
     res.sendFile(path.resolve(__dirname + '/../public/index.html'));
   }
 });

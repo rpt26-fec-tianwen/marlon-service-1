@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 export const getProduct = (id) => {
-  // comment out "path" in proxy
-  // reference window.location.href instead
   const path = '/card/' + id;
 
-  // use these in proxy
+  // you may choose to use this as a universal path instead
+  // const path =  '/router';
+
+  // you may use these in proxy
   // will guide your request
   const config = {
     params: {
@@ -25,17 +26,18 @@ export const getProduct = (id) => {
 
 
 export const getProductType = (id) => {
-  // comment out "path" in proxy
-  // reference window.location.href instead
-  const path = '/productDetail/activity/' + id;
+  const path = '/activity/' + id;
 
-  // use these in proxy
+  // you may choose to use this as a universal path instead
+  // const path =  '/router';
+
+  // you may use these in proxy
   // will guide your request
   const config = {
     params: {
       service: 'details',
       host: 'localhost',
-      port: 8003,
+      port: 8002,
       path: '/',
       productId: id,
       indicator: 'activity'
@@ -50,11 +52,12 @@ export const getProductType = (id) => {
 
 
 export const getProductReview = (id) => {
-  // comment out "path" in proxy
-  // reference window.location.href instead
   const path =  '/reviews-products/' + id;
 
-  // use these in proxy
+  // you may choose to use this as a universal path instead
+  // const path =  '/router';
+
+  // you may use these in proxy
   // will guide your request
   const config = {
     params: {
@@ -70,4 +73,4 @@ export const getProductReview = (id) => {
     .then((response) => {
       return response.data;
     });
-}
+};
