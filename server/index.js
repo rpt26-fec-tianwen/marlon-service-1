@@ -70,7 +70,7 @@ app.get('/related/:id', (req, res) => {
     return;
   }
 
-  return related_images.get({ids: req.body.data})
+  return related_images.get({ids: req.query.ids})
     .then((results) => {
       console.log('Success:', results[0]);
 
