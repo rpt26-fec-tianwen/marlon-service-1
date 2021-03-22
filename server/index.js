@@ -21,8 +21,6 @@ app.get('/:id', (req, res) => {
     return;
   }
 
-  console.log(req.params, req.query);
-
   if (req.query.proxy) {
     res.sendFile(path.resolve(__dirname + '/../public/dist/bundle.js'));
 
