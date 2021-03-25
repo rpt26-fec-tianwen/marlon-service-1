@@ -52,7 +52,7 @@ export const getProductType = (id) => {
 
 
 export const getProductReview = (id) => {
-  const path =  '/reviews-products/' + id;
+  const path =  '/reviews/' + id;
 
   // you may choose to use this as a universal path instead
   // const path =  '/router';
@@ -64,7 +64,7 @@ export const getProductReview = (id) => {
       service: 'reviews',
       host: 'localhost',
       port: 8004,
-      path: '/reviews-products/',
+      path: '/',
       productId: id
     }
   };

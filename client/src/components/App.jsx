@@ -112,11 +112,12 @@ class App extends React.Component {
       })
       .then(() => {
         return this.props.getProductReview(productId)
-          .then((review) => {
-            if (!review) {
-              throw review;
+          .then((result) => {
+            if (!result) {
+              throw result;
             } else {
-              this.setState({productReview: review});
+              let rating = Math.floor(Number(result));
+              this.setState({productRating: rating});
             }
           });
       })
